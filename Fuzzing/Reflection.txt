@@ -10,9 +10,6 @@
 Я выбрал Jazzer. 
 Хотя пока версия только 0.13.3, он обладал наиболее понятным API и вообще позиционировал своб интеграцию такой же простой, как обычный тест на Junit.
 
-г) Как подготовить те входные данные, что генерирует фаззер, для передачи аргументами в мои функции, когда используются не стандартные типы данных.
-
-
 2) На каком языке написан ваш проект?
 Java.
 
@@ -21,3 +18,10 @@ Java.
 
 4) Сколько ошибок в нём выявило фазз-тестирование.
 Ошибок выявлено не было(тестировал собственную реализацию связного списка). 
+
+Мои примеры fuzz тестирования.
+https://github.com/FedorSabeshkin/DataStructures/blob/master/src/com/sabeshkin/linkedlist/FuzzCountTest.java
+https://github.com/FedorSabeshkin/DataStructures/blob/master/src/com/sabeshkin/linkedlist/FuzzEmptyListTest.java
+https://github.com/FedorSabeshkin/DataStructures/blob/master/src/com/sabeshkin/linkedlist/FuzzFindAllTest.java
+https://github.com/FedorSabeshkin/DataStructures/blob/master/src/com/sabeshkin/linkedlist/FuzzRemoveAllTest.java
+https://github.com/FedorSabeshkin/DataStructures/blob/master/src/com/sabeshkin/linkedlist/FuzzRemoveTest.java

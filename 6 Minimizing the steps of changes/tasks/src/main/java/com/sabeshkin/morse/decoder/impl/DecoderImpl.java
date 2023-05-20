@@ -2,7 +2,8 @@ package com.sabeshkin.morse.decoder.impl;
 
 import com.sabeshkin.morse.decoder.api.Decoder;
 
-public class DecoderImpl implements Decoder {
+public class DecoderImpl
+    implements Decoder {
 
   @Override
   public String decode(String morseCode) {
@@ -11,7 +12,7 @@ public class DecoderImpl implements Decoder {
 
   @Override
   public String[] breakToParts(String morseMessage) {
-    return new String[1];
+    return morseMessage.split("\\s+");
   }
 
 

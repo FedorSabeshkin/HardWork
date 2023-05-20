@@ -23,7 +23,7 @@ class DecoderTest {
   }
 
   @Test
-  void testBreakParts() {
+  void testBreakToLetterParts() {
     Decoder decoder = new DecoderImpl();
     assertAll(
         () ->
@@ -32,6 +32,16 @@ class DecoderTest {
         () ->
             assertEquals(2,
                          decoder.breakToLetterParts(". _").length)
+    );
+  }
+
+  @Test
+  void testBreakToWordParts() {
+    Decoder decoder = new DecoderImpl();
+    assertAll(
+        () ->
+            assertEquals(1,
+                         decoder.breakToWordParts(".").length)
     );
   }
 

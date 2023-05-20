@@ -18,4 +18,9 @@ public interface Decoder {
    */
   String[] breakToLetterParts(String morseMessage);
 
+  /**
+   * Разбивает принятое сообщение по пробелу на массив слов.
+   */
+  String[] breakToWordParts(String morseMessage);
+
 }

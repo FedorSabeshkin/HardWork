@@ -1,9 +1,16 @@
 package com.sabeshkin.morse.decoder.impl;
 
 import com.sabeshkin.morse.decoder.api.Decoder;
+import com.sabeshkin.morse.decoder.api.MorseCodeLatinLetterMap;
 
 public class DecoderImpl
     implements Decoder {
+
+  private final MorseCodeLatinLetterMap morseCodeLatinLetterMap;
+
+  public DecoderImpl() {
+    morseCodeLatinLetterMap = new MorseCodeLatinLetterMapImpl();
+  }
 
   @Override
   public String decodePhrase(String morseCode) {
@@ -12,7 +19,7 @@ public class DecoderImpl
 
   @Override
   public String decodeLetter(String morseCode) {
-    return "E";
+    return morseCodeLatinLetterMap.get(morseCode);
   }
 
   @Override

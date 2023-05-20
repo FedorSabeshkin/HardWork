@@ -9,6 +9,11 @@ public class MorseCodeLatinLetterMapImpl
     implements MorseCodeLatinLetterMap {
 
   @Override
+  public String get(String morseCode) {
+    return "E";
+  }
+
+  @Override
   public int size() {
     return 28;
   }

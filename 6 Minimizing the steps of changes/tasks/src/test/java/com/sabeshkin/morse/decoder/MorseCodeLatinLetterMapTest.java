@@ -12,9 +12,15 @@ import org.junit.jupiter.api.Test;
 class MorseCodeLatinLetterMapTest {
 
   @Test
-  void testDecode() {
+  void testSize() {
     MorseCodeLatinLetterMap morseCodeLatinLetterMap = new MorseCodeLatinLetterMapImpl();
     assertEquals(28, morseCodeLatinLetterMap.size());
+  }
+
+  @Test
+  void testGet() {
+    MorseCodeLatinLetterMap morseCodeLatinLetterMap = new MorseCodeLatinLetterMapImpl();
+    assertEquals("E", morseCodeLatinLetterMap.get("."));
   }
 
 }

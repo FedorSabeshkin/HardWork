@@ -51,7 +51,7 @@ public class MorseCodeLatinLetterMapImpl
 
   @Override
   public String get(String morseCode) {
-    return "E";
+    return alphabet.get(morseCode);
   }
 
   @Override

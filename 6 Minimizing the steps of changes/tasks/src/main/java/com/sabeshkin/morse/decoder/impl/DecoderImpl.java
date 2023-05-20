@@ -2,6 +2,7 @@ package com.sabeshkin.morse.decoder.impl;
 
 import com.sabeshkin.morse.decoder.api.Decoder;
 import com.sabeshkin.morse.decoder.api.MorseCodeLatinLetterMap;
+import java.util.Arrays;
 
 public class DecoderImpl
     implements Decoder {
@@ -23,8 +24,16 @@ public class DecoderImpl
   }
 
   @Override
-  public String decodeWord(String morseCode) {
-    return "HE";
+  public String decodeWord(String morseWord) {
+    StringBuilder stringBuilder = new StringBuilder();
+    String[] morseLetters = breakToLetterParts(morseWord);
+    Arrays.stream(morseLetters)
+          .forEach(morseLetter -> {
+                     String latinLetter = decodeLetter(morseLetter);
+                     stringBuilder.append(latinLetter);
+                   }
+          );
+    return stringBuilder.toString();
   }
 
   @Override

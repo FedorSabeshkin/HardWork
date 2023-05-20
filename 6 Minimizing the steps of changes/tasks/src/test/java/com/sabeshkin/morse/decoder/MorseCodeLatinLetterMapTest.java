@@ -1,5 +1,6 @@
 package com.sabeshkin.morse.decoder;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.sabeshkin.morse.decoder.api.MorseCodeLatinLetterMap;
@@ -20,7 +21,12 @@ class MorseCodeLatinLetterMapTest {
   @Test
   void testGet() {
     MorseCodeLatinLetterMap morseCodeLatinLetterMap = new MorseCodeLatinLetterMapImpl();
-    assertEquals("E", morseCodeLatinLetterMap.get("."));
+    assertAll(
+        () ->
+            assertEquals("H", morseCodeLatinLetterMap.get("....")),
+        () ->
+            assertEquals("E", morseCodeLatinLetterMap.get("."))
+    );
   }
 
 }

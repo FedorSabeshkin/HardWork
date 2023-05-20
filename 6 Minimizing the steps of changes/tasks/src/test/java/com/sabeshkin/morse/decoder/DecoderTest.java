@@ -41,7 +41,13 @@ class DecoderTest {
     assertAll(
         () ->
             assertEquals(1,
-                         decoder.breakToWordParts(".").length)
+                         decoder.breakToWordParts(".").length),
+        () ->
+            assertEquals(1,
+                         decoder.breakToWordParts(". _").length),
+        () ->
+            assertEquals(2,
+                         decoder.breakToWordParts(".  _").length)
     );
   }
 

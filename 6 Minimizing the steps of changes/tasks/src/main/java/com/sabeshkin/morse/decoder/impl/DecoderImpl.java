@@ -17,8 +17,7 @@ public class DecoderImpl
 
   @Override
   public String[] breakToWordParts(String morseMessage) {
-    return new String[1];
+    return morseMessage.split("\\s\\s+");
   }
-
 
 }

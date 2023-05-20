@@ -1,8 +1,10 @@
 package com.sabeshkin.morse.decoder;
 
-
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.sabeshkin.morse.decoder.api.Decoder;
+import com.sabeshkin.morse.decoder.impl.DecoderImpl;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -12,7 +14,11 @@ class DecoderTest {
 
   @Test
   void testDecode() {
-    assertEquals("E", Decoder.decode("."));
+    Decoder decoder = new DecoderImpl();
+    assertAll(
+        () ->
+            assertEquals("E", decoder.decode("."))
+    );
   }
 
 }

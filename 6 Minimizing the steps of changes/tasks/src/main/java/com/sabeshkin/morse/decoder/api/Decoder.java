@@ -1,9 +1,9 @@
-package com.sabeshkin.morse.decoder;
+package com.sabeshkin.morse.decoder.api;
 
 /**
  * Класс для декодирования кода Морзе в латиницу.
  */
-public class Decoder {
+public interface Decoder {
 
   /**
    * Декодирует код Морзе в латиницу.
@@ -11,8 +11,6 @@ public class Decoder {
    * @param morseCode строка в коде Морзе, например "___".
    * @return строка из латиницы.
    */
-  public static String decode(String morseCode) {
-    return "E";
-  }
+  String decode(String morseCode);
 
 }

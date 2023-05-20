@@ -23,6 +23,11 @@ public class DecoderImpl
   }
 
   @Override
+  public String decodeWord(String morseCode) {
+    return "HE";
+  }
+
+  @Override
   public String[] breakToLetterParts(String morseMessage) {
     return morseMessage.split("\\s+");
   }

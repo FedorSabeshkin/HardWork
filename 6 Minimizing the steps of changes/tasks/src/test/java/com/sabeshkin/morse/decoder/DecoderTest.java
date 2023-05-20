@@ -33,6 +33,16 @@ class DecoderTest {
   }
 
   @Test
+  void testDecodeWord() {
+    Decoder decoder = new DecoderImpl();
+    assertAll(
+        () ->
+            assertEquals("HE",
+                         decoder.decodeWord(".... . "))
+    );
+  }
+
+  @Test
   void testBreakToLetterParts() {
     Decoder decoder = new DecoderImpl();
     assertAll(

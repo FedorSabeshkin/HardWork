@@ -19,6 +19,11 @@ public interface Decoder {
   String decodeLetter(String morseCode);
 
   /**
+   * Декодирует слово в коде Морзе в слово на латинице.
+   */
+  String decodeWord(String morseCode);
+
+  /**
    * Разбивает принятое сообщение по пробелу на массив букв.
    */
   String[] breakToLetterParts(String morseMessage);

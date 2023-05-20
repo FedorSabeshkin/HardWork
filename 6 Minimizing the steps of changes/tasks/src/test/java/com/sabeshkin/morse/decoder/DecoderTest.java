@@ -28,10 +28,10 @@ class DecoderTest {
     assertAll(
         () ->
             assertEquals(1,
-                         decoder.breakToParts(".").length),
+                         decoder.breakToLetterParts(".").length),
         () ->
             assertEquals(2,
-                         decoder.breakToParts(". _").length)
+                         decoder.breakToLetterParts(". _").length)
     );
   }
 

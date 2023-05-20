@@ -9,4 +9,10 @@ public class DecoderImpl implements Decoder {
     return "E";
   }
 
+  @Override
+  public String[] breakToParts(String morseMessage) {
+    return new String[1];
+  }
+
+
 }

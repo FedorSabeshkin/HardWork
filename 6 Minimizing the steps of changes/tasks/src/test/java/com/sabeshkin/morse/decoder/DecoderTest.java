@@ -17,7 +17,18 @@ class DecoderTest {
     Decoder decoder = new DecoderImpl();
     assertAll(
         () ->
-            assertEquals("E", decoder.decode("."))
+            assertEquals("E",
+                         decoder.decode("."))
+    );
+  }
+
+  @Test
+  void testBreakParts() {
+    Decoder decoder = new DecoderImpl();
+    assertAll(
+        () ->
+            assertEquals(1,
+                         decoder.breakToParts(".").length)
     );
   }
 

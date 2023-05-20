@@ -14,7 +14,7 @@ class MorseCodeLatinLetterMapTest {
   @Test
   void testSize() {
     MorseCodeLatinLetterMap morseCodeLatinLetterMap = new MorseCodeLatinLetterMapImpl();
-    assertEquals(28, morseCodeLatinLetterMap.size());
+    assertEquals(26, morseCodeLatinLetterMap.size());
   }
 
   @Test

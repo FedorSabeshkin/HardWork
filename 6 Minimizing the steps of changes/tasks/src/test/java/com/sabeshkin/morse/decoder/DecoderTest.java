@@ -18,7 +18,17 @@ class DecoderTest {
     assertAll(
         () ->
             assertEquals("E",
-                         decoder.decode("."))
+                         decoder.decodePhrase("."))
+    );
+  }
+
+  @Test
+  void testDecodeLetter() {
+    Decoder decoder = new DecoderImpl();
+    assertAll(
+        () ->
+            assertEquals("E",
+                         decoder.decodePhrase("."))
     );
   }
 

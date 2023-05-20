@@ -11,7 +11,12 @@ public interface Decoder {
    * @param morseCode строка в коде Морзе, например "___".
    * @return строка из латиницы.
    */
-  String decode(String morseCode);
+  String decodePhrase(String morseCode);
+
+  /**
+   * Декодирует код буквы Морзе в букву латиницы.
+   */
+  String decodeLetter(String morseCode);
 
   /**
    * Разбивает принятое сообщение по пробелу на массив букв.

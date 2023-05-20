@@ -6,7 +6,12 @@ public class DecoderImpl
     implements Decoder {
 
   @Override
-  public String decode(String morseCode) {
+  public String decodePhrase(String morseCode) {
+    return "E";
+  }
+
+  @Override
+  public String decodeLetter(String morseCode) {
     return "E";
   }
 

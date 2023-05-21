@@ -41,7 +41,7 @@ public class MorseCodeLatinLetterMapImpl
     put('R', ".-.");
     put('S', "...");
     put('T', "-");
-    put('U', "..--");
+    put('U', "..-");
     put('V', "...-");
     put('W', ".--");
     put('X', "-..-");

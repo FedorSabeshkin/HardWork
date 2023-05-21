@@ -13,17 +13,7 @@ import org.junit.jupiter.api.Test;
 class DecoderTest {
 
   @Test
-  void testDecode() {
-    Decoder decoder = new DecoderImpl();
-    assertAll(
-        () ->
-            assertEquals("E",
-                         decoder.decodePhrase("."))
-    );
-  }
-
-  @Test
-  void testDecodeLetter() {
+  void testDecodePhrase() {
     Decoder decoder = new DecoderImpl();
     assertAll(
         () ->
@@ -38,9 +28,26 @@ class DecoderTest {
     assertAll(
         () ->
             assertEquals("HE",
-                         decoder.decodeWord(".... . "))
+                         decoder.decodeWord(".... . ")),
+        () ->
+            assertEquals("JUDE",
+                         decoder.decodeWord(".--- ..- -.. ."))
     );
   }
+
+  @Test
+  void testDecodeLetter() {
+    Decoder decoder = new DecoderImpl();
+    assertAll(
+        () ->
+            assertEquals("H",
+                         decoder.decodeLetter("....")),
+        () ->
+            assertEquals("E",
+                         decoder.decodeLetter("."))
+    );
+  }
+
 
   @Test
   void testBreakToLetterParts() {

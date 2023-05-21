@@ -18,7 +18,16 @@ class DecoderTest {
     assertAll(
         () ->
             assertEquals("E",
-                         decoder.decodePhrase("."))
+                         decoder.decodePhrase(".")),
+        () ->
+            assertEquals("HE",
+                         decoder.decodePhrase(".... . ")),
+        () ->
+            assertEquals("JUDE",
+                         decoder.decodePhrase(".--- ..- -.. .")),
+        () ->
+            assertEquals("HEY JUDE",
+                         decoder.decodePhrase(".... . -.--   .--- ..- -.. ."))
     );
   }
 

@@ -9,13 +9,25 @@ public class DecoderImpl
 
   private final MorseCodeLatinLetterMap morseCodeLatinLetterMap;
 
+  private final static String SPACE = " ";
+
   public DecoderImpl() {
     morseCodeLatinLetterMap = new MorseCodeLatinLetterMapImpl();
   }
 
   @Override
-  public String decodePhrase(String morseCode) {
-    return "E";
+  public String decodePhrase(String morseMessage) {
+    StringBuilder sbLatinPhrase = new StringBuilder();
+    String[] morseWords = breakToWordParts(morseMessage);
+    Arrays.stream(morseWords)
+          .forEach(morseWord -> {
+                     String latinWord = decodeWord(morseWord);
+                     sbLatinPhrase.append(latinWord)
+                                  .append(SPACE);
+                   }
+          );
+    String latinPhrase = sbLatinPhrase.toString();
+    return latinPhrase.strip();
   }
 
   @Override
@@ -25,15 +37,15 @@ public class DecoderImpl
 
   @Override
   public String decodeWord(String morseWord) {
-    StringBuilder stringBuilder = new StringBuilder();
+    StringBuilder sbLatinWord = new StringBuilder();
     String[] morseLetters = breakToLetterParts(morseWord);
     Arrays.stream(morseLetters)
           .forEach(morseLetter -> {
                      String latinLetter = decodeLetter(morseLetter);
-                     stringBuilder.append(latinLetter);
+                     sbLatinWord.append(latinLetter);
                    }
           );
-    return stringBuilder.toString();
+    return sbLatinWord.toString();
   }
 
   @Override

@@ -1,6 +1,6 @@
 ## Задача
 Требуется показать примеры и исправления, когда одна из "физических" строк кода нарушает SPR.
-Под одной "физической" линией кода, Я подразумеваю строчку даже с переносом на несколько,
+Под одной "физической" линией кода, я подразумеваю строчку даже с переносом на несколько,
 но когда она не завершилась неким оператором завершения строки,
 например ";" в Java.
 
@@ -34,6 +34,7 @@ User user = authService.getAuthorizedUser(userId));
 UserName userName = user.getUserDisplayName();
 item.setUserName (userName);
 ```
+б)
 ```java
 // до
 item.setRegistrationStatusName(
@@ -67,4 +68,34 @@ private I18nkey getI18nkey(Registrationstatusid registrationStatusId) {
                                                 .map (RegistrationStatus::getNameI18nkey)
                                                 .orElse (null);
 }
+```
+в)
+```java
+// до 
+items.add(
+    RestrictionsonParticipantInfo.builder()
+                                  .restrictionCode Participant (code)
+                                  .dateRestrictionStart(
+                                        SHARED_DATE_UTILS.getLocalDateFromTimestamp(restriction.getStartDate()))
+                                  .referenceInfo(restrictionsonParticipantCodeReference.getDescription())
+                                  .build());
+```
+```java
+// после
+/**
+* Здесь вынес и отдельные переменные преобразования и создания значений.
+* Для получения значения из геттера не вижу смысла создавать новую переменную,
+* т.к. это просто дублирует ту структуру, что уже находится как поле в классе объекта,
+* у которого вызываю один из геттеров.
+* хотя иногда это выглядит читабельнее, т.к. избавляемся от одной из точек при вызове функции,
+* как в примере (а), в строке 2.
+**/
+LocalDate dateRestrictionStart SHARED_DATE_UTILS.getLocalDateFromTimestamp(restriction.getStartDate());
+RestrictionsOnParticipantInfo restrictionsonParticipantInfo = RestrictionsonparticipantInfo.builder()
+                                                                                          .restrictionCodeParticipant(code)
+                                                                                          .dateRestrictionstart(dateRestrictionstart)
+                                                                                          .referenceInfo(restrictionsOnParticipantCodeReference.getDescription())
+                                                                                          .build();
+
+items.add(restrictionsonParticipantInfo);
 ```

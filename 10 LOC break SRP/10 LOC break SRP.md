@@ -99,3 +99,47 @@ RestrictionsOnParticipantInfo restrictionsonParticipantInfo = Restrictionsonpart
 
 items.add(restrictionsonParticipantInfo);
 ```
+г) 
+```java
+// до
+ParticipantscatalogGridItem participantscatalogdridItem = Participantscatalogariditem.builder()
+  .name(jenkinsParticipant.getName())
+  .type(ParticipantType.getParticipantTypeByTypeCode(
+                                                jenkinsParticipant.getType()).getDescription()
+                                                )
+  .state(Participantstatus.getParticipantStatusByStatusCode(
+                                      jenkinsParticipant.getstatus()).getDescription()
+  )
+  .dateInclusion(getProtoDateLocalDate(jenkinsParticipant
+                                                        .getDteIn()))
+  .dateExclusion(Objects.equals(Timestamp.getDefaultInstance(), jenkinsParticipant.getDateout())
+                                ? null
+                                :getProtoDateLocalDate(jenkinsParticipant.getDateout()))
+  .build():
+```
+```java
+// после
+ParticipanType participantType = ParticipantType.getParticipantrypanyTypecode(
+                                              jenkinaParticipant.getType());
+String participantTypeString = participantType.getDescription();
+
+ParticipantStatus participantStatus = ParticipantStatus.getParticipantStatusByStatusCode(
+                                                jenkinaParticipant.getStatus());
+
+String participantStateString = participantStatus.getDescription();
+
+LocalDate dateInclusion = getProtoDateLocalDate(jenkinaParticipant.getDateIn())
+
+LocalDate dateExclusion = Objects.equals(
+                          Timestamp.getDefaultInstance(), jenkinaParticipant.getDateOut())
+                          ? null
+                          :getProtoDateLocalDate(jenkinsParticipant.getDateout());
+
+ParticipantsCatalogGridItem participantsCatalogdGridItem = ParticipantsCatalogdGridItem.builder()
+  .name(jenkinsParticipant.getName())
+  .type(participantTypeString)
+  .state(participantStateString)
+  .dateInclusion(dateInclusion)
+  .dateExclusion(dateExclusion))
+  .build():
+```

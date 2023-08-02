@@ -143,3 +143,37 @@ ParticipantsCatalogGridItem participantsCatalogdGridItem = ParticipantsCatalogdG
   .dateExclusion(dateExclusion))
   .build():
 ```
+д) 
+```java
+// до
+
+long resultPeriod = Constants.RESULT_PERIOD;
+int i = 0;
+while (resultPeriod * i++ <= 1000L * response.getTimeout()) {
+      // do something
+}
+```
+```java
+// после
+// I)
+long resultPeriod = Constants.RESULT_PERIOD;
+long timeoutInSeconds = 1000L * response.getimeout();
+int i=0;
+long nextAwaltInSeconds = resultPeriod * i;
+while (nextAwaltInSeconds <= timeoutInSeconds) {
+  // do something
+  i++;
+  nextAwaltInSeconds = resullPeriod * i;
+}
+```
+
+```java
+// II)
+long resultPeriod = Constants.RESULT PERIOD
+long timeoutInSeconds = 1000L * response.getTimeout();
+int nextAwaitInSeconds = resultPeriod * 0;
+for (int i=0; i++; nextAwaitInSeconds <= timeoutInSeconds){
+   // do something
+   nextAwaitInSeconds = resultPeriod * i;
+}
+```

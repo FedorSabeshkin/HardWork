@@ -99,8 +99,7 @@ class Health{
 Аналогично случаю (1)
 _До_  
 ```java
-	String in = scanner.nextLine()
-						   .toUpperCase();
+	String in = scanner.nextLine().toUpperCase();
     switch (in) {
       case "Б": {
         Battle battle = new Battle();
@@ -130,13 +129,13 @@ _До_
         Formatter.log("Вы ввели неверную команду, попробуйте еще раз");
         selectAction(scanner);
       }
+  }
 ```
 
 
 _После_  
 ```java
-	String in = scanner.nextLine()
-						   .toUpperCase();
+	String in = scanner.nextLine().toUpperCase();
 	ActionFabric.getActionByName(in);
 	  
 // внутренний класс
@@ -146,8 +145,8 @@ _После_
 **/
 class ActionFabric{
 
-	public void getActionByName(String name){
-	  case "Б": {
+  public void getActionByName(String name){
+      case "Б": {
          return new BattleAction();
 		 
       }
@@ -166,7 +165,7 @@ class ActionFabric{
         Formatter.log("Вы ввели неверную команду, попробуйте еще раз");
         selectAction(scanner);
       }
-	}
+  }
 
 }  
 /**
@@ -176,13 +175,13 @@ class BattleAction impements Action{
 
 	
 	public BattleAction(){
-		Battle battle = new Battle();
-        BattleResult battleResult = battle.startWithNpc(warrior,
+          Battle battle = new Battle();
+          BattleResult battleResult = battle.startWithNpc(warrior,
                                                         statistic,
                                                         scanner);
-        warrior = battleResult.getWarrior()
+          warrior = battleResult.getWarrior()
                               .treatToDefaultSize();
-        statistic = battleResult.getStatistic();
+          statistic = battleResult.getStatistic();
 	}
 }
 

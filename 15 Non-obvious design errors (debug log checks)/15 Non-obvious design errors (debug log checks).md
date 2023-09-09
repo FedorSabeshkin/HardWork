@@ -137,7 +137,7 @@ _После_
 ```java
 	String in = scanner.nextLine()
 						   .toUpperCase();
-	Action action = ActionFabric.getActionByName(in);
+	ActionFabric.getActionByName(in);
 	  
 // внутренний класс
 /**
@@ -146,10 +146,10 @@ _После_
 **/
 class ActionFabric{
 
-	public Action getActionByName(String name){
+	public void getActionByName(String name){
 	  case "Б": {
-         new BattleAction();
-		 return;
+         return new BattleAction();
+		 
       }
       case "М": {
         return new ShopAction();
@@ -174,8 +174,8 @@ class ActionFabric{
 **/
 class BattleAction impements Action{
 
-	@Overide
-	public void do(){
+	
+	public BattleAction(){
 		Battle battle = new Battle();
         BattleResult battleResult = battle.startWithNpc(warrior,
                                                         statistic,
@@ -191,8 +191,8 @@ class BattleAction impements Action{
 **/
 class ShopAction impements Action{
 
-	@Overide
-	public void do(){
+	
+	public ShopAction(){
 		warrior = shop.goToShop(warrior, scanner);
 	}
 }
